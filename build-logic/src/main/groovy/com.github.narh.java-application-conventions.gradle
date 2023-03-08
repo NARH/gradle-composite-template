@@ -1,0 +1,4 @@
+plugins {
+  id('com.github.narh.java-common-conventions')
+  id('application')
+}

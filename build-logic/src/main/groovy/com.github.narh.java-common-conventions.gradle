@@ -1,0 +1,41 @@
+plugins {
+  id('java')
+  id('eclipse')
+  id('idea')
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation('org.apache.commons:commons-text:1.9')
+}
+
+java {
+  sourceCompatibility = JavaVersion.VERSION_19
+  targetCompatibility = JavaVersion.VERSION_19
+}
+
+compileJava {
+  options.encoding = 'UTF-8'
+}
+
+compileTestJava {
+  options.encoding = 'UTF-8'
+}
+
+eclipse {
+  classpath {
+    file {
+      whenMerged { classpath -> classpath.entries.removeAll { it.path = '.apt_generated' } }
+      withXml { provider ->
+        def node = provider.asNode()
+        node.appendNode( 'classpathentry', [ kind: 'src', output: 'build/classes/java/main', path: '.apt_generated' ] )
+      }
+    }
+  }
+  jdt {
+    javaRuntimeName = 'JavaSE-19'
+  }
+}

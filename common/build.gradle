@@ -1,0 +1,29 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+}
+
+plugins {
+  id 'com.github.narh.java-common-conventions'
+  id 'java'
+  id 'com.diffplug.eclipse.apt' version '3.40.0'
+  id 'org.seasar.doma.compile' version '1.1.0'
+  id 'io.freefair.lombok' version '6.6.3'
+  id 'org.domaframework.doma.codegen' version '2.0.0'
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  // doma
+  annotationProcessor "org.seasar.doma:doma-processor:${domaVersion}"
+  implementation "org.seasar.doma:doma-core:${domaVersion}"
+  // google guava components
+  implementation "com.google.guava:guava:${guavaVersion}"
+  // test framework
+  testImplementation "org.junit.jupiter:junit-jupiter:${jupiterVersion}"
+  testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${jupiterVersion}"
+}
