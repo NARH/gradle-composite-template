@@ -1,14 +1,13 @@
 plugins {
   id 'com.github.narh.java-application-conventions'
-  id 'org.springframework.boot' version '3.0.4'
+  alias(libs.plugins.springboot.plugin)
 }
 
 apply plugin: 'io.spring.dependency-management'
 
 dependencies {
   implementation(project(':common'))
-  implementation 'org.springframework.boot:spring-boot-starter-web-services'
-  implementation "org.seasar.doma.boot:doma-spring-boot:${domaSpringVersion}"
+  implementation libs.springboot.web.services
 }
 
 application {
