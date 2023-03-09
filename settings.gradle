@@ -12,4 +12,4 @@ pluginManagement {
 }
 
 rootProject.name = 'my-gradle-project'
-include('app', 'batch', 'common')
+include('webapp', 'batch', 'common')
