@@ -1,0 +1,9 @@
+version "3"
+
+service:
+  postgresql:
+    build:
+      context: ./postgresql
+      dockerfile: Dockerfile
+    container_name: "postgresql_db"
+    
