@@ -1,0 +1,16 @@
+plugins {
+  id 'com.github.narh.java-common-conventions'
+  alias(libs.plugins.diffplug.eclipse.apt.plugin)
+  alias(libs.plugins.lombok.plugin)
+  alias(libs.plugins.doma.compile.plugin)
+  alias(libs.plugins.doma.codegen.plugin)
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation      libs.bundles.common
+}
+
