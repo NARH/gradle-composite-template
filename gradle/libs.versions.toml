@@ -1,5 +1,5 @@
 [versions]
-springboot-plugin           = '3.0.4'
+springboot-plugin           = '3.0.5'
 diffplug-eclipse-apt-plugin = '3.40.0'
 lombok-plugin               = '6.6.3'
 doma-compile-plugin         = '1.1.0'
@@ -8,21 +8,25 @@ doma                        = '2.53.1'
 springboot-doma             = '1.7.0'
 guava                       = '31.1-jre'
 junit-jupiter               = '5.9.2'
+h2                          = '2.1.214'
 
 [libraries]
 springboot-web-services     = { module = 'org.springframework.boot:spring-boot-starter-web-services' }
 springboot-batch            = { module = 'org.springframework.boot:spring-boot-starter-batch' }
+springboot-security         = { module = 'org.springframework.boot:spring-boot-starter-security'}
 springboot-doma             = { module = 'org.seasar.doma.boot:doma-spring-boot',  version.ref = 'springboot-doma' }
 doma-processor              = { module = 'org.seasar.doma:doma-processor',         version.ref = 'doma' }
 doma-core                   = { module = 'org.seasar.doma:doma-core',              version.ref = 'doma' }
 guava                       = { module = 'com.google.guava:guava',                 version.ref = 'guava' }
 junit-jupiter               = { module = 'org.junit.jupiter:junit-jupiter',        version.ref = 'junit-jupiter' }
 junit-jupiter-engine        = { module = 'org.junit.jupiter:junit-jupiter-engine', version.ref = 'junit-jupiter' }
+h2                          = { module = 'com.h2database:h2',                      version.ref = 'h2'}
+springboot-security-test    = { module = 'org.springframework.security:spring-security-test' }
 
 [bundles]
-common                      = [ 'doma-core', 'guava' ]
-springboot-web-services     = [ 'springboot-web-services', 'springboot-doma' ]
-springboot-batch            = [ 'springboot-batch', 'springboot-doma' ]
+common                      = [ 'h2', 'doma-core', 'guava' ]
+springboot-web-services     = [ 'springboot-web-services', 'springboot-security', 'springboot-doma' ]
+springboot-batch            = [ 'springboot-batch', 'springboot-security', 'springboot-doma' ]
 
 [plugins]
 springboot-plugin           = { id = 'org.springframework.boot',        version.ref = 'springboot-plugin' }

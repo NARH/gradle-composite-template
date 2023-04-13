@@ -8,6 +8,8 @@ apply plugin: 'io.spring.dependency-management'
 dependencies {
   implementation(project(':common'))
   implementation libs.springboot.batch
+  implementation libs.springboot.security
+  testImplementation libs.springboot.security.test
 }
 
 application {

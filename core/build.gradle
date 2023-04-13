@@ -13,4 +13,3 @@ repositories {
 dependencies {
   implementation      libs.bundles.common
 }
-
