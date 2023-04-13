@@ -10,17 +10,20 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 public class SecurityConfig {
-    @Value("${spring.profiles.active}")
+    @Value("${spring.profiles.active:#{null}    }")
     String activeProfile;
 
     @Bean
     PasswordEncoder passwordEncoder() {
-        switch (activeProfile) {
-            case "local":
-            case "intra":
-                return NoOpPasswordEncoder.getInstance();
-            default:
-                return new BCryptPasswordEncoder();
+        if(null != activeProfile) {
+            switch (activeProfile) {
+                case "local":
+                case "intra":
+                    return NoOpPasswordEncoder.getInstance();
+                default:
+                    return new BCryptPasswordEncoder();
+            }
         }
+        return new BCryptPasswordEncoder();
     }
 }
